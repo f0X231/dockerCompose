@@ -1,0 +1,29 @@
+version: '2'
+services:
+  blog:
+    image: nginx:1.13.0-alpine
+    container_name: blog
+    expose:
+      - 80
+    volumes:
+      - ./web/blog:/var/www/html/web
+      - ./nginx/nginx-blog.conf:/etc/nginx/nginx.conf
+    environment:
+      VIRTUAL_HOST: 'blog.gigapixel.dev'
+
+  profile:
+    image: nginx:1.13.0-alpine
+    container_name: profile
+    expose:
+      - 80
+    volumes:
+      - ./web/profile:/var/www/html/web
+      - ./nginx/nginx-profile.conf:/etc/nginx/nginx.conf
+    environment:
+      VIRTUAL_HOST: 'profile.gigapixel.dev'
+
+networks:
+  default:
+    external:
+      name: sandbox_network
+

@@ -1,0 +1,7 @@
+# command for up
+docker-compose -f docker-compose.yml build
+docker-compose -f docker-compose.yml up -d
+
+ref: https://tecadmin.net/docker-compose-for-mysql-with-phpmyadmin/
+
+
